@@ -1,0 +1,19 @@
+﻿@model List<Poliklinik>
+
+@{
+
+}
+
+<h1> Poliklinik Sayfası </h1>
+
+<div>
+	@foreach(var item in Model)
+	{
+		<div>
+			<div>
+				<p> @item.PoliklinikID </p>
+				<p> @item.PoliklinikAd </p>
+			</div>
+		</div>
+	}
+</div>

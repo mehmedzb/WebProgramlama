@@ -10,7 +10,7 @@ namespace HastaneRandevu.Models
 
         public string DoktorSoyad { get; set; }
 
-        public Poliklinik DoktorPoliklinik { get; set; }
+        public Poliklinik Poliklinik { get; set; }
 
     }
 }

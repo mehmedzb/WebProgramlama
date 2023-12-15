@@ -1,0 +1,20 @@
+﻿@model List<Hasta>
+
+@{
+}
+
+<h1> hasta sayfası</h1>
+
+<div>
+	@foreach (var item in Model)
+	{
+			<div>
+				<div>
+					<p> @item.HastaID </p>
+					<p> @item.HastaAd </p>
+					<p> @item.HastaSoyad </p>
+					<p> @item.HastaYas </p>
+				</div>
+			</div>
+	}
+</div>
