@@ -1,13 +1,14 @@
-﻿using HastaneRandevu.Models;
+﻿using HastaneWeb.Data;
+using HastaneWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace HastaneRandevu.Controllers
+namespace HastaneWeb.Controllers
 {
     public class PoliklinikController : Controller
     {
-        private readonly HastaneContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public PoliklinikController(HastaneContext context)
+        public PoliklinikController(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -26,6 +27,14 @@ namespace HastaneRandevu.Controllers
         public IActionResult Create() 
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(Poliklinik poliklinik) 
+        {
+            if (!ModelState.IsValid) return View(poliklinik);
+            _context.Poliklinikler.Add(poliklinik);
+            return RedirectToAction("Index");
         }
 
     }

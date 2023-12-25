@@ -1,13 +1,14 @@
-﻿using HastaneRandevu.Models;
+﻿using HastaneWeb.Data;
+using HastaneWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace HastaneRandevu.Controllers
+namespace HastaneWeb.Controllers
 {
     public class HastaController : Controller
     {
-        private readonly HastaneContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public HastaController(HastaneContext context)
+        public HastaController(ApplicationDbContext context)
         {
             _context = context;
         }

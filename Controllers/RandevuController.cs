@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace HastaneRandevu.Controllers
+namespace HastaneWeb.Controllers
 {
     public class RandevuController : Controller
     {

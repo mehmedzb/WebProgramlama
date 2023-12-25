@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace HastaneRandevu.Models
+namespace HastaneWeb.Models
 {
     public class Randevu
     {

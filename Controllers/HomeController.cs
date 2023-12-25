@@ -1,8 +1,9 @@
-﻿using HastaneRandevu.Models;
+﻿using HastaneWeb.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace HastaneRandevu.Controllers
+namespace HastaneWeb.Controllers
 {
     public class HomeController : Controller
     {
@@ -18,6 +19,7 @@ namespace HastaneRandevu.Controllers
             return View();
         }
 
+        [Authorize]
         public IActionResult Privacy()
         {
             return View();

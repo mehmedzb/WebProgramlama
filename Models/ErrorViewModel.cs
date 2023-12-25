@@ -1,4 +1,4 @@
-namespace HastaneRandevu.Models
+namespace HastaneWeb.Models
 {
     public class ErrorViewModel
     {

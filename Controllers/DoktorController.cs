@@ -1,13 +1,14 @@
-﻿using HastaneRandevu.Models;
+﻿using HastaneWeb.Data;
+using HastaneWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace HastaneRandevu.Controllers
+namespace HastaneWeb.Controllers
 {
     public class DoktorController : Controller
     {
-        private readonly HastaneContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public DoktorController(HastaneContext context)
+        public DoktorController(ApplicationDbContext context)
         {
             _context = context;
         }
