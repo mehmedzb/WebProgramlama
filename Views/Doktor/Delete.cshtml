@@ -1,0 +1,41 @@
+﻿@model HastaneWeb.Models.Doktor
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Silmek istediğinize emin misiniz?</h3>
+<div>
+    <h4>Doktor</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DoktorAd)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DoktorAd)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DoktorSoyad)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DoktorSoyad)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Poliklinik)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Poliklinik)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="DoktorID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
+
+

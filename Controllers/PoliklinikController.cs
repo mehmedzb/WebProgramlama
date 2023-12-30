@@ -29,6 +29,16 @@ namespace HastaneWeb.Controllers
             return View();
         }
 
+        public IActionResult Edit()
+        {
+            return View();
+        }   
+
+        public IActionResult Delete() 
+        {
+            return View();
+        }
+
         [HttpPost]
         public async Task<IActionResult> Create(Poliklinik poliklinik) 
         {

@@ -1,19 +1,36 @@
-﻿@model List<Poliklinik>
+﻿@model IEnumerable<HastaneWeb.Models.Poliklinik>
 
 @{
-
+    ViewData["Title"] = "Index";
 }
 
-<h1> Poliklinik Sayfası </h1>
+<h1>Index</h1>
 
-<div>
-	@foreach(var item in Model)
-	{
-		<div>
-			<div>
-				<p> @item.PoliklinikID </p>
-				<p> @item.PoliklinikAd </p>
-			</div>
-		</div>
-	}
-</div>
+<p>
+    <a asp-action="Create">Yeni Oluştur</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PoliklinikAd)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PoliklinikAd)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.PoliklinikID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.PoliklinikID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.PoliklinikID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

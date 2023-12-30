@@ -1,20 +1,48 @@
-﻿@model List<Doktor>
+﻿@model IEnumerable<HastaneWeb.Models.Doktor>
 
 @{
+    ViewData["Title"] = "Index";
 }
 
-<h1> Doktor Sayfası </h1>
+<h1>Index</h1>
 
-<div>
-	@foreach (var item in Model)
-	{
-				<div>
-					<div>
-						<p> @item.DoktorID </p>
-						<p> @item.DoktorAd </p>
-						<p> @item.DoktorSoyad </p>
-						<p> @item.Poliklinik.PoliklinikAd </p>
-					</div>
-				</div>
-	}
-</div>
+<p>
+    <a asp-action="Create"> Yeni Oluştur</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DoktorAd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DoktorSoyad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Poliklinik)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DoktorAd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DoktorSoyad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Poliklinik)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.DoktorID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.DoktorID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.DoktorID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
