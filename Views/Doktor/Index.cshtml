@@ -1,4 +1,5 @@
-﻿@model IEnumerable<HastaneWeb.Models.Doktor>
+﻿@using HastaneWeb.Models
+@model IEnumerable<HastaneWeb.Models.Doktor>
 
 @{
     ViewData["Title"] = "Index";
@@ -19,8 +20,9 @@
                 @Html.DisplayNameFor(model => model.DoktorSoyad)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Poliklinik)
+				@Html.DisplayNameFor(model => model.Poliklinik.PoliklinikAd)
             </th>
+
             <th></th>
         </tr>
     </thead>
@@ -35,7 +37,7 @@
                     @Html.DisplayFor(modelItem => item.DoktorSoyad)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Poliklinik)
+                    @Html.DisplayFor(modelItem => item.Poliklinik.PoliklinikAd)
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.DoktorID">Edit</a> |

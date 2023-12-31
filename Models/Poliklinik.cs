@@ -7,7 +7,5 @@ namespace HastaneWeb.Models
         [Key]
         public int PoliklinikID { get; set; }
         public string PoliklinikAd{ get; set; }
-
-
     }
 }

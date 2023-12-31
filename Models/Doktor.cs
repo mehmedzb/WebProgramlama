@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HastaneWeb.Models
 {
@@ -7,9 +8,7 @@ namespace HastaneWeb.Models
         [Key]
         public int DoktorID { get; set; }
         public string DoktorAd{ get; set; }
-
         public string DoktorSoyad { get; set; }
-
         public Poliklinik Poliklinik { get; set; }
 
     }
