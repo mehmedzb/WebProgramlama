@@ -103,6 +103,9 @@ namespace HastaneWeb.Data.Migrations
                     b.Property<int>("HastaID")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("RandevuTarih")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("RandevuID");
 
                     b.HasIndex("DoktorID");

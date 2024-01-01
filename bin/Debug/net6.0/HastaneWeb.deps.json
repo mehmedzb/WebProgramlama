@@ -18,6 +18,17 @@
         },
         "runtime": {
           "HastaneWeb.dll": {}
+        },
+        "resources": {
+          "en-US/HastaneWeb.resources.dll": {
+            "locale": "en-US"
+          },
+          "fr-FR/HastaneWeb.resources.dll": {
+            "locale": "fr-FR"
+          },
+          "tr-TR/HastaneWeb.resources.dll": {
+            "locale": "tr-TR"
+          }
         }
       },
       "Humanizer/2.14.1": {

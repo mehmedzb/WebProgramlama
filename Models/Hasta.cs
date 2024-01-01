@@ -9,6 +9,6 @@ namespace HastaneWeb.Models
         public string HastaAd { get; set; }
         public string HastaSoyad { get; set; }
         public int HastaYas { get; set; }
-
+        public virtual ICollection<Randevu> Randevular { get; set; }
     }
 }

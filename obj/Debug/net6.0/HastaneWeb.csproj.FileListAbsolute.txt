@@ -284,3 +284,13 @@ C:\Users\mehme\source\repos\HastaneWeb\bin\Debug\net6.0\runtimes\win-arm\native\
 C:\Users\mehme\source\repos\HastaneWeb\bin\Debug\net6.0\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\mehme\source\repos\HastaneWeb\bin\Debug\net6.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\mehme\source\repos\HastaneWeb\bin\Debug\net6.0\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\mehme\source\repos\HastaneWeb\obj\Debug\net6.0\HastaneWeb.csproj.GenerateResource.cache
+C:\Users\mehme\source\repos\HastaneWeb\bin\Debug\net6.0\en-US\HastaneWeb.resources.dll
+C:\Users\mehme\source\repos\HastaneWeb\bin\Debug\net6.0\fr-FR\HastaneWeb.resources.dll
+C:\Users\mehme\source\repos\HastaneWeb\bin\Debug\net6.0\tr-TR\HastaneWeb.resources.dll
+C:\Users\mehme\source\repos\HastaneWeb\obj\Debug\net6.0\HastaneWeb.Resources.SharedResource.en-US.resources
+C:\Users\mehme\source\repos\HastaneWeb\obj\Debug\net6.0\HastaneWeb.Resources.SharedResource.fr-FR.resources
+C:\Users\mehme\source\repos\HastaneWeb\obj\Debug\net6.0\HastaneWeb.Resources.SharedResource.tr-TR.resources
+C:\Users\mehme\source\repos\HastaneWeb\obj\Debug\net6.0\en-US\HastaneWeb.resources.dll
+C:\Users\mehme\source\repos\HastaneWeb\obj\Debug\net6.0\fr-FR\HastaneWeb.resources.dll
+C:\Users\mehme\source\repos\HastaneWeb\obj\Debug\net6.0\tr-TR\HastaneWeb.resources.dll

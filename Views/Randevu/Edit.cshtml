@@ -1,5 +1,47 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model HastaneWeb.Models.Randevu
+
 @{
+    ViewData["Doktor"] = new SelectList(_context.Set<Doktor>(), "DoktorID", "DoktorAd" , "DoktorSoyad");
+    ViewData["Hasta"] = new SelectList(_context.Set<Hasta>(), "HastaID", "HastaAd" , "HastaSoyad");
+}
+
+<h1>Edit</h1>
+
+<h4>Randevu</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="RandevuID" />
+            <div class="form-group">
+                <label asp-for="HastaID" class="control-label"></label>
+                <select asp-for="HastaID" class="form-control" asp-items="ViewBag.Hasta">
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoktorID" class="control-label"></label>
+                <select asp-for="DoktorID" class="form-control" asp-items="ViewBag.Doktor">
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="RandevuTarih"></label>
+                <input asp-for="RandevuTarih" class="form-control" type="datetime-local">
+                <span asp-validation-for="RandevuTarih" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

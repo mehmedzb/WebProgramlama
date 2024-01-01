@@ -16,7 +16,7 @@ namespace HastaneWeb.Controllers
         public async Task<IActionResult> Index()
         {
             return _context.Doktorlar != null ?
-                View(await _context.Doktorlar.ToListAsync()) :
+                View(await _context.Doktorlar.Include(d => d.Poliklinik).ToListAsync()) :
                 Problem("Entity set 'ApplicationDbContext.Doktorlar'  is null.");
         }
 
@@ -28,6 +28,7 @@ namespace HastaneWeb.Controllers
             }
 
             var doktor = await _context.Doktorlar
+                .Include(d => d.Poliklinik)
                 .FirstOrDefaultAsync(m => m.DoktorID == id);
             if (doktor == null)
             {
@@ -39,24 +40,28 @@ namespace HastaneWeb.Controllers
 
         public IActionResult Create()
         {
+            ViewBag.Poliklinikler = _context.Poliklinikler.ToListAsync();
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DoktorID,DoktorAd,DoktorSoyad,Poliklinik")] Doktor doktor)
+        public async Task<IActionResult> Create(Doktor doktor)
         {
             if (ModelState.IsValid || true)
             {
-                _context.Add(doktor);
+                _context.Doktorlar.Add(doktor);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(doktor);
         }
 
+
         public async Task<IActionResult> Edit(int? id)
         {
+            ViewBag.Poliklinikler = _context.Poliklinikler.ToListAsync();
+
             if (id == null || _context.Doktorlar == null)
             {
                 return NotFound();
@@ -72,7 +77,7 @@ namespace HastaneWeb.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("DoktorID,DoktorAd,DoktorSoyad,Poliklinik")] Doktor doktor)
+        public async Task<IActionResult> Edit(int id,  Doktor doktor)
         {
             if (id != doktor.DoktorID)
             {
@@ -110,7 +115,7 @@ namespace HastaneWeb.Controllers
                 return NotFound();
             }
 
-            var doktor = await _context.Doktorlar
+            var doktor = await _context.Doktorlar.Include(d => d.Poliklinik)
                 .FirstOrDefaultAsync(m => m.DoktorID == id);
             if (doktor == null)
             {

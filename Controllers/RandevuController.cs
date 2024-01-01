@@ -17,7 +17,7 @@ namespace HastaneWeb.Controllers
         public async Task<IActionResult> Index()
         {
             return _context.Randevular != null ?
-                View(await _context.Randevular.ToListAsync()) :
+                View(await _context.Randevular.Include(d => d.Doktor).Include(d => d.Hasta).ToListAsync()) :
                 Problem("Entity set 'ApplicationDbContext.Randevular'  is null.");
         }
 
@@ -29,6 +29,8 @@ namespace HastaneWeb.Controllers
             }
 
             var randevu = await _context.Randevular
+                .Include(d => d.Doktor)
+                .Include(h => h.Hasta)
                 .FirstOrDefaultAsync(m => m.RandevuID == id);
             if (randevu == null)
             {
@@ -40,12 +42,14 @@ namespace HastaneWeb.Controllers
 
         public IActionResult Create()
         {
+            ViewBag.Doktorlar = _context.Doktorlar.ToListAsync();
+            ViewBag.Hastalar = _context.Hastalar.ToListAsync();
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RandevuID,Doktor,Hasta")] Randevu randevu)
+        public async Task<IActionResult> Create(Randevu randevu)
         {
             if (ModelState.IsValid || true)
             {
@@ -58,6 +62,9 @@ namespace HastaneWeb.Controllers
 
         public async Task<IActionResult> Edit(int? id)
         {
+            ViewBag.Doktorlar = _context.Doktorlar.ToListAsync();
+            ViewBag.Hastalar = _context.Hastalar.ToListAsync();
+
             if (id == null || _context.Randevular == null)
             {
                 return NotFound();
@@ -73,14 +80,14 @@ namespace HastaneWeb.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("RandevuID,Doktor,Hasta")] Randevu randevu)
+        public async Task<IActionResult> Edit(int id, Randevu randevu)
         {
             if (id != randevu.RandevuID)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (ModelState.IsValid || true)
             {
                 try
                 {
@@ -111,6 +118,8 @@ namespace HastaneWeb.Controllers
             }
 
             var randevu = await _context.Randevular
+                .Include(d => d.Doktor)
+                .Include(h => h.Hasta)
                 .FirstOrDefaultAsync(m => m.RandevuID == id);
             if (randevu == null)
             {

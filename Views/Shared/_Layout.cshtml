@@ -20,19 +20,52 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">@_localization.GetKey("Home")</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">@_localization.GetKey("Privacy")</a>
                         </li>
+                        <li>
+                            <div class="dropdown">
+                                <button type="button"
+                                        class="btn btn-primary dropdown-toggle"
+                                        data-bs-toggle="dropdown">
+                                    @_localization.GetKey("Localization")
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a asp-controller="Home"
+                                           asp-action="ChangeLanguage"
+                                           asp-route-culture="en-US"
+                                           class="dropdown-item">
+                                            <i class="flag-icon flag-icon-gb"></i> English
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a asp-controller="Home"
+                                           asp-action="ChangeLanguage"
+                                           asp-route-culture="tr-TR"
+                                           class="dropdown-item">
+                                            <i class="flag-icon flag-icon-gb"></i> Türkçe
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a asp-controller="Home"
+                                           asp-action="ChangeLanguage"
+                                           asp-route-culture="fr-FR"
+                                           class="dropdown-item">
+                                            <i class="flag-icon flag-icon-gb"></i> French
+                                        </a>
+                                    </li>
+                                </ul>
                         @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                         {
                             
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Doktor" asp-action="Index">Doktor</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Doktor" asp-action="Index">@_localization.GetKey("Doctor")</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Hasta" asp-action="Index">Hasta</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Hasta" asp-action="Index">@_localization.GetKey("Patient")</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Poliklinik" asp-action="Index">Poliklinik</a>
@@ -41,7 +74,7 @@
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Randevu" asp-action="Index">Randevu</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Randevu" asp-action="Index">@_localization.GetKey("Appointment")</a>
                             </li>
                         }
                     </ul>

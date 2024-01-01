@@ -1,7 +1,50 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using HastaneWeb.Models
+@model IEnumerable<HastaneWeb.Models.Randevu>
+
 @{
+    ViewData["Title"] = "Index";
 }
 
-<h1> Randevu Sayfası </h1>
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create"> Yeni Oluştur</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Hasta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Doktor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RandevuTarih)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Hasta.HastaAd @item.Hasta.HastaSoyad 
+                </td>
+                <td>
+                    @item.Doktor.DoktorAd @item.Doktor.DoktorSoyad
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RandevuTarih)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.RandevuID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.RandevuID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.RandevuID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
